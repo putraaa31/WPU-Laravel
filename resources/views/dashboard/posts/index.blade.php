@@ -31,13 +31,15 @@
                 <td>{{ $post->category->name }}</td>
                 <td>
                     <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span
-                            data-feather="eye"></span></a>
-                    <a href="/dashboard/posts/{{ $post->id }}" class="badge bg-warning"><span
-                            data-feather="edit"></span></a>
+                    data-feather="eye"></span></a>
+
+                    <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><span
+                    data-feather="edit"></span></a>
+                    
                     <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
                       @csrf
                       @method('delete')
-                        <button class="badge bg-danger border-0">
+                        <button class="badge bg-danger border-0" onclick="return confirm('Yang bener?')">
                             <span data-feather="x-circle"></span>
                         </button>
                     </form>
